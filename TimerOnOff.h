@@ -38,10 +38,10 @@ TimerOnOff* timerOnOffList[] =
   new TimerOnOff(_timerOnOff_testHour, _timerOnOff_testMinute, 1, "2"),
 
   // wall lamps
-  new TimerOnOff(18, 01, 1, "8"),
+  new TimerOnOff(18, 30, 1, "8"),
 
   // standard downstairs Day Night
-  new TimerOnOff(18, 1, 1, "4,5,6,3"),
+  new TimerOnOff(18, 31, 1, "4,5,6,3"),
   new TimerOnOff(5, 0, 0, "4,5,6,3")
 
 };

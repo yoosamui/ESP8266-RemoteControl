@@ -1,8 +1,8 @@
 
 //*****************************************************************
 //
-//  Copyright (C) 2015 Juan R. Gonzalez
-//  Created on November 20, 2015,
+//  Copyright (C) 2016 Juan R. Gonzalez
+//  Created on November 26, 2016,
 //  j-gonzalez@email.de
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -23,7 +23,7 @@
 
 /*
   if can't connect to USB
-  chmod a+rw /dev/ttyUSB0
+  #sudo chmod a+rw /dev/ttyUSB0
 
 
   Power Cycling
@@ -123,7 +123,7 @@ void setup()
 
 unsigned long previousMillis = 0;         // will store last time clock was updated
 const long interval = 1000;               // interval at which the clock is updated (milliseconds)
-int lastTimeMinute = -1;                  // Last Time minute an alarm was set.
+//int lastTimeMinute = -1;                  // Last Time minute an alarm was set.
 //---------------------------------------------------------------------------
 void loop()
 {
@@ -143,9 +143,9 @@ void loop()
     // Check for alarms
     for ( auto timer :  timerOnOffList )
     {
-      if ( softclock.Hour == timer->_hour && softclock.Minute == timer->_minute && lastTimeMinute != timer->_minute /*softclock.Second == 0*/)
+      if ( softclock.Hour == timer->_hour && softclock.Minute == timer->_minute && /*lastTimeMinute != timer->_minute*/ softclock.Second == 0)
       {
-        lastTimeMinute = timer->_minute;
+        //lastTimeMinute = timer->_minute;
         timer->_isSet = 1;
         String token = "";
         int Ints[500] = {0};
@@ -189,7 +189,7 @@ void loop()
           else
           {
             executeRf(t);
-            printTargetsDebug(t);
+           // printTargetsDebug(t);
           }
         }
 
@@ -592,7 +592,7 @@ void GetTime()
   int theSeconds = ss;
 
 
-  Serial.print("Time from NTP");
+  Serial.print("Time from NTP updated");
   //Serial.println(thehour );
 
   softclock.setTime(thehour, mm, ss + 1);

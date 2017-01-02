@@ -23,6 +23,6 @@ Target* tlist[] =
   new Target("Wall rf22", "Wall",  "/rf22", "15", 10000030, 12600000, NULL),
   new Target("Wall rf24", "Wall",  "/rf24", "16", 10000124, 14000000, NULL),
   new Target("Wall rf25", "Wall",  "/rf25", "17", 10000126, 14200000, NULL)
-
+  
 };
 
