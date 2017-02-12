@@ -134,8 +134,24 @@ void loop()
     if ( !softclock.isSet )
     {
       GetTime();
+
+
+  
+  Serial.print("UPDATE FROM NTP ");
+  
+      
     }
     softclock.update();
+    Serial.print(softclock.Hour);
+
+  Serial.print(":");
+  Serial.print(softclock.Minute);
+  
+
+
+  Serial.print(":");
+  Serial.print(softclock.Second);
+ Serial.println(" ");
 
     // save the last time we was here
     previousMillis = currentMillis;
@@ -145,6 +161,9 @@ void loop()
     {
       if ( softclock.Hour == timer->_hour && softclock.Minute == timer->_minute && /*lastTimeMinute != timer->_minute*/ softclock.Second == 0)
       {
+
+        Serial.println("in time...............");
+        
         //lastTimeMinute = timer->_minute;
         timer->_isSet = 1;
         String token = "";
